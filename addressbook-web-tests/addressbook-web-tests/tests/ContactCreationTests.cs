@@ -12,11 +12,9 @@ namespace WebAddressBookTests
         [Test]
         public void ContactCreationTest()
         {
-            app.Navigator.OpenHomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
-            app.Contacts.InitNewContactCreation();
-            app.Contacts.FillContactForm(new ContactData("MyName", "MyLastname"));
-            app.Groups.Submit();
+            ContactData contact = new ContactData("MyName", "MyLastname");
+
+            app.Contacts.Create(contact);
             // ERROR: Caught exception [Error: Dom locators are not implemented yet!]
         }
     }
