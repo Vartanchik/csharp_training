@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practice-web-tests", "practice-web-tests\practice-web-tests.csproj", "{C3785361-242C-44E4-AC3B-EC450E94CCB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3785361-242C-44E4-AC3B-EC450E94CCB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3785361-242C-44E4-AC3B-EC450E94CCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3785361-242C-44E4-AC3B-EC450E94CCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3785361-242C-44E4-AC3B-EC450E94CCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C4E2D18-22AA-4E39-B0CD-60932458B5E0}
+	EndGlobalSection
+EndGlobal

@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace WebAddressBookTests
+namespace WebPracriceTests
 {
     public class ApplicationManager
     {
@@ -18,7 +18,6 @@ namespace WebAddressBookTests
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigationHelper;
-        protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
 
         public ApplicationManager()
@@ -27,23 +26,13 @@ namespace WebAddressBookTests
             options.BrowserExecutableLocation = @"c:\Program Files\Mozilla Firefox\firefox.exe";
             options.UseLegacyImplementation = true;
             driver = new FirefoxDriver(options);
-            baseURL = "http://localhost/";
+            baseURL = "http://localhost";
             verificationErrors = new StringBuilder();
 
             loginHelper = new LoginHelper(this);
             navigationHelper = new NavigationHelper(this, baseURL);
-            groupHelper = new GroupHelper(this);
             contactHelper = new ContactHelper(this, acceptNextAlert);
         }
-
-        public IWebDriver Driver
-        {
-            get
-            {
-                return driver;
-            }
-        }
-        
 
         public bool AcceptNextAlert
         {
@@ -63,6 +52,15 @@ namespace WebAddressBookTests
             {
                 // Ignore errors if unable to close the browser
             }
+            NUnit.Framework.Assert.AreEqual("", verificationErrors.ToString());
+        }
+
+        public IWebDriver Driver
+        {
+            get
+            {
+                return driver;
+            }
         }
 
         public LoginHelper Auth
@@ -81,15 +79,7 @@ namespace WebAddressBookTests
             }
         }
 
-        public GroupHelper Groups
-        {
-            get
-            {
-                return groupHelper;
-            }
-        }
-
-        public ContactHelper Contacts
+        public ContactHelper Contact
         {
             get
             {
