@@ -14,8 +14,28 @@ namespace WebAddressBookTests
         public void ContactModificationTest()
         {
             ContactData newData = new ContactData("NewMyName", "NewMyLastname");
+            newData.Firstname = null;
+            newData.Middlename = null;
+            newData.Lastname = null;
+            newData.Nickname = null;
+            newData.Title = null;
+            newData.Company = null;
+            newData.Address = null;
+            newData.Telhome = null;
+            newData.Telmobile = null;
+            newData.Telwork = null;
+            newData.Telfax = null;
+            newData.Email = null;
+            newData.Email2 = null;
+            newData.Email3 = null;
+            newData.Homepage = null;
+            newData.Byear = null;
+            newData.Ayear = null;
+            newData.Address2 = null;
+            newData.Phone2 = null;
+            newData.Notes = null;
 
-            app.Contacts.Modify(17, newData);
+            app.Contacts.Modify(19, newData);
 
         }
 
