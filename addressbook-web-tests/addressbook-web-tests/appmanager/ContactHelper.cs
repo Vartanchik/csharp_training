@@ -48,25 +48,40 @@ namespace WebAddressBookTests
             InitNewContactCreation();
             FillContactForm(contact);
             SubmitContactCreation();
+            manager.Navigator.OpenHomePage();
             return this;
         }
 
         public ContactHelper Modify(int p, ContactData contact)
         {
             manager.Navigator.OpenHomePage();
+            if (!IsElementPresent(By.Name("selected[]")))
+            {
+                Create(new ContactData("", ""));
+            }
+
+            manager.Navigator.OpenHomePage();
             SelectContact(p);
             EditContact();
             FillContactForm(contact);
             SubmitContactEdit();
+            manager.Navigator.OpenHomePage();
             return this;
         }
 
         public ContactHelper Remove(int p)
         {
             manager.Navigator.OpenHomePage();
+            if (!IsElementPresent(By.Name("selected[]")))
+            {
+                Create(new ContactData("", ""));
+            }
+
+            manager.Navigator.OpenHomePage();
             SelectContact(p);
             RemveContact();
             ConfirmRemoveContact();
+            manager.Navigator.OpenHomePage();
             return this;
         }
 

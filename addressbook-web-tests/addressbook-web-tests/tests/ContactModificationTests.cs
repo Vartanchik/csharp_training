@@ -14,9 +14,7 @@ namespace WebAddressBookTests
         public void ContactModificationTest()
         {
             ContactData newData = new ContactData("NewMyName", "NewMyLastname");
-            newData.Firstname = null;
             newData.Middlename = null;
-            newData.Lastname = null;
             newData.Nickname = null;
             newData.Title = null;
             newData.Company = null;
@@ -35,7 +33,7 @@ namespace WebAddressBookTests
             newData.Phone2 = null;
             newData.Notes = null;
 
-            app.Contacts.Modify(21, newData);
+            app.Contacts.Modify(32, newData);
 
         }
 
