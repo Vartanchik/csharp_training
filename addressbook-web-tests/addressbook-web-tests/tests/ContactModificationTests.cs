@@ -33,7 +33,7 @@ namespace WebAddressBookTests
             newData.Phone2 = null;
             newData.Notes = null;
 
-            app.Contacts.Modify(32, newData);
+            app.Contacts.Modify(0, newData);
 
         }
 

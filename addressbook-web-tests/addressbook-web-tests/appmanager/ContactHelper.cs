@@ -42,6 +42,19 @@ namespace WebAddressBookTests
             }
         }
 
+        public List<ContactData> GetContactList()
+        {
+            List<ContactData> contacts = new List<ContactData>();
+            manager.Navigator.OpenHomePage();
+            ICollection<IWebElement> elementsName = driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[3]"));
+            ICollection<IWebElement> elementsLastName = driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[2]"));
+            for (int i = 0; i < elementsName.Count; i++)
+            {
+                contacts.Add(new ContactData(Convert.ToString(elementsName.ElementAt<IWebElement>(i)), Convert.ToString(elementsLastName.ElementAt<IWebElement>(i))));
+            }
+            return contacts;
+        }
+
         public ContactHelper Create(ContactData contact)
         {
             manager.Navigator.OpenHomePage();
@@ -124,9 +137,9 @@ namespace WebAddressBookTests
 
         public ContactHelper SelectContact(int index)
         {
-            string stringIndex = index.ToString();
-            //driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + index + "]")).Click();
-            driver.FindElement(By.Id(stringIndex)).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (index+1) + "]")).Click();
+            //string stringIndex = index.ToString();
+            //driver.FindElement(By.Id(stringIndex)).Click();
             return this;
         }
 
