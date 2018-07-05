@@ -46,11 +46,11 @@ namespace WebAddressBookTests
         {
             List<ContactData> contacts = new List<ContactData>();
             manager.Navigator.OpenHomePage();
-            ICollection<IWebElement> elementsName = driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[3]"));
+            ICollection<IWebElement> elementsFirstName = driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[3]"));
             ICollection<IWebElement> elementsLastName = driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[2]"));
-            for (int i = 0; i < elementsName.Count; i++)
+            for (int i = 0; i < elementsFirstName.Count; i++)
             {
-                contacts.Add(new ContactData(Convert.ToString(elementsName.ElementAt<IWebElement>(i)), Convert.ToString(elementsLastName.ElementAt<IWebElement>(i))));
+                contacts.Add(new ContactData(elementsFirstName.ElementAt<IWebElement>(i).Text, elementsLastName.ElementAt<IWebElement>(i).Text));
             }
             return contacts;
         }
