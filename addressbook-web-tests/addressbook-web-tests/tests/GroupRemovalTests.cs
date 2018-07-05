@@ -14,6 +14,7 @@ namespace WebAddressBookTests
         public void GroupRemovalTest()
         {
             List<GroupData> oldGroups = app.Groups.GetGroupList();
+            GroupData oldData = oldGroups[0];
 
             app.Groups.Remove(0);
 
@@ -22,6 +23,11 @@ namespace WebAddressBookTests
             List<GroupData> newGroups = app.Groups.GetGroupList();
             oldGroups.RemoveAt(0);
             Assert.AreEqual(oldGroups, newGroups);
+
+            foreach (GroupData group in newGroups)
+            {
+                Assert.AreNotEqual(group.Id, oldData.Id);
+            }
         }
     }
 }

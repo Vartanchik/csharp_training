@@ -53,7 +53,7 @@ namespace WebAddressBookTests
         [Test]
         public void BadNameGroupCreationTest()
         {
-            GroupData group = new GroupData("ds'd");
+            GroupData group = new GroupData("dsd");
             group.Footer = "";
             group.Header = "";
 
