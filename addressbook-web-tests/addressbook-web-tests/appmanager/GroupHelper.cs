@@ -50,7 +50,7 @@ namespace WebAddressBookTests
             return driver.FindElements(By.CssSelector("span.group")).Count;
         }
 
-        public GroupHelper Modify(int p, GroupData newData)
+        public GroupHelper Modify(int index, GroupData newData)
         {
             manager.Navigator.GoToGroupsPage();
             if (!IsElementPresent(By.Name("selected[]")))
@@ -59,7 +59,7 @@ namespace WebAddressBookTests
             }
 
             manager.Navigator.GoToGroupsPage();
-            SelectGroup(p);
+            SelectGroup(index);
             InitGroupModification();
             FillGroupForm(newData);
             SubmitGroupModification();
@@ -67,7 +67,7 @@ namespace WebAddressBookTests
             return this;
         }
 
-        public GroupHelper Remove(int p)
+        public GroupHelper Remove(int index)
         {
             manager.Navigator.GoToGroupsPage();
             if (!IsElementPresent(By.Name("selected[]")))
@@ -76,7 +76,7 @@ namespace WebAddressBookTests
             }
 
             manager.Navigator.GoToGroupsPage();
-            SelectGroup(p);
+            SelectGroup(index);
             RemoveGroup();
             manager.Navigator.GoToGroupsPage();
             return this;
