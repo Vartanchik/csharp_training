@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
-using System.Text.RegularExpressions;
 
 namespace WebAddressBookTests
 {
@@ -94,7 +93,7 @@ namespace WebAddressBookTests
 
         public int GetContactCount()
         {
-            return driver.FindElements(By.XPath(".//*[@id='maintable']/tbody/tr/td[3]")).Count;
+            return driver.FindElements(By.Name("entry")).Count;
         }
 
         private List<ContactData> getCache = null;
@@ -230,12 +229,20 @@ namespace WebAddressBookTests
             return this;
         }
 
-        public int GetNumberOfSearchResults()
+        public int GetNumberOfSearchResults(string searchString)
         {
             manager.Navigator.OpenHomePage();
-            string text = driver.FindElement(By.TagName("label")).Text;
-            Match m = new Regex(@"\d+").Match(text);
-            return Int32.Parse(m.Value);
+            driver.FindElement(By.Name("searchstring")).SendKeys(searchString);
+            string text = driver.FindElement(By.Id("search_count")).Text;
+            return Int32.Parse(text);
+        }
+
+        public int GetNumberOfContactsSearch()
+        {
+            int countContacts = GetContactCount();
+            int countHidedContacts = driver.FindElement(By.CssSelector("#maintable")).FindElements(By.CssSelector("tr[style]")).Count;
+
+            return countContacts - countHidedContacts;
         }
     }
 }

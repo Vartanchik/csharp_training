@@ -139,7 +139,7 @@ namespace WebAddressBookTests
             {
                 return "";
             }
-            return Regex.Replace(tel, "[ -()]", "") + "\r\n";
+            return Regex.Replace(tel, "[- ()]", "") + "\r\n";
         }
     }
 }
