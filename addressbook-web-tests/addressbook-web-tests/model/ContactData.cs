@@ -11,6 +11,7 @@ namespace WebAddressBookTests
     {
         private string allTels;
         private string allEmails;
+        private string allData;
 
         public ContactData(string firstname, string lastname)
         {
@@ -140,6 +141,34 @@ namespace WebAddressBookTests
                 return "";
             }
             return Regex.Replace(tel, "[- ()]", "") + "\r\n";
+        }
+
+        public string AllData
+        {
+            get
+            {
+                if (allData != null)
+                {
+                    return allData;
+                }
+                else
+                {
+                    return (FirstName + " " + LastName + "\r\n"
+                        + Address + "\r\n"
+                        + "\r\n"
+                        + "H: " + TelHome + "\r\n"
+                        + "M: " + TelMobile + "\r\n"
+                        + "W: " + TelWork + "\r\n"
+                        + "\r\n"
+                        + Email + "\r\n"
+                        + Email2 + "\r\n"
+                        + Email3);
+                }
+            }
+            set
+            {
+                allData = value;
+            }
         }
     }
 }
