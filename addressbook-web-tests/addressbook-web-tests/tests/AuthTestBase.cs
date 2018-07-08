@@ -15,5 +15,18 @@ namespace WebAddressBookTests
             app.Auth.Login(new AccountData("admin", "secret"));
         }
 
+        public static Random rnd = new Random();
+
+        public static string GenerateRandomString(int max)
+        {
+            int l = Convert.ToInt32(rnd.NextDouble() * max);
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < l; i++)
+            {
+                builder.Append(Convert.ToChar(Convert.ToInt32(32 + rnd.NextDouble()*233)));
+            }
+            return builder.ToString();
+        }
+
     }
 }
